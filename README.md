@@ -6,6 +6,11 @@ Snippets for RA coursework!
 
 All snippets are prefixed with ras-
 
+ras-sqlz-config       :   template sequelize config file
+ras-sqlz-mig          :   template sequelize migration file with one createTable query
+ras-sqlz-table-otm    :   template one-to-many createTable query
+ras-sqlz-mdl-mtm      :   template many-to-many model
+
 Tab through placeholders to quickly edit the snippet.
 
 Model snippets name themselves based on the current filename.
@@ -14,10 +19,10 @@ Model snippets name themselves based on the current filename.
 
 For example if there is an image subfolder under your extension project workspace: -->
 
-<!-- \!\[feature X\]\(images/feature-x.png\) -->
+<!-- \!\[feature X\]\(images/feature-x.png\) 
 
 > Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
-
+-->
 ## Requirements
 
 Let me know if you find any
