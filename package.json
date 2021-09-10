@@ -3,8 +3,8 @@
   "displayName": "RA Snippets",
   "description": "Snippets for Rocket Academy",
   "version": "0.0.1",
-  "publisher": "MR T",
-  "repository": "https://github.com/tinsights/RASnippets"
+  "publisher": "TinaesAJ",
+  "repository": "https://github.com/tinsights/RASnippets",
   "engines": {
     "vscode": "^1.60.0"
   },
