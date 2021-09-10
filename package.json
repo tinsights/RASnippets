@@ -1,0 +1,21 @@
+{
+  "name": "ra-snippets",
+  "displayName": "RA Snippets",
+  "description": "Snippets for Rocket Academy",
+  "version": "0.0.1",
+  "publisher": "Mr T",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Snippets"
+  ],
+  "contributes": {
+    "snippets": [
+      {
+        "language": "javascript",
+        "path": "./snippets/snippets.code-snippets"
+      }
+    ]
+  }
+}
