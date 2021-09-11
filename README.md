@@ -28,7 +28,7 @@ For example if there is an image subfolder under your extension project workspac
 -->
 ## Requirements
 
-Let me know if you find any
+None yet!
 
 ## Extension Settings
 
