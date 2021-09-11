@@ -10,14 +10,6 @@
       "    host: '127.0.0.1',",
       "    dialect: 'postgres',",
       "  },",
-      "};module.exports = {",
-      "  development: {",
-      "    username: '${1:username}',",
-      "    password: null,",
-      "    database: '${2:DB_name}_development',",
-      "    host: '127.0.0.1',",
-      "    dialect: 'postgres',",
-      "  },",
       "};"
     ],
     "description": "Sequelize config file template"
