@@ -49,6 +49,31 @@
     ],
     "description": "Basic migration template"
   },
+  "Sequelize table creation": {
+    "prefix": "ras-sqlz-table",
+    "body": [
+      "await queryInterface.createTable('${1:table_name_plural}', {",
+      "      id: {",
+      "        allowNull: false,",
+      "        autoIncrement: true,",
+      "        primaryKey: true,",
+      "        type: Sequelize.INTEGER,",
+      "      },",
+      "      ${2:name}: {",
+      "        type: Sequelize.${3:DATATYPE},",
+      "      },",
+      "      created_at: {",
+      "        allowNull: false,",
+      "        type: Sequelize.DATE,",
+      "      },",
+      "      updated_at: {",
+      "        allowNull: false,",
+      "        type: Sequelize.DATE,",
+      "      },",
+      "    });"
+    ],
+    "description": ""
+  },
   "Sequelize 1-many table creation": {
     "prefix": "ras-sqlz-table-otm",
     "body": [
@@ -63,10 +88,10 @@
       "        type: Sequelize.STRING,",
       "      },",
       "      ${2:col_name_singular}_id: {",
-      "        type: Sequelize.INTEGER,",
+      "        type: Sequelize.${3:DATATYPE},",
       "        // This links the ${2:col_name_singular}_id column to the id column in the ${2:col_Name_Singular}s table",
       "        references: {",
-      "          model: '${3:tables}',",
+      "          model: '${2:col_name_singular}s',",
       "          key: 'id',",
       "        },",
       "      },",
@@ -78,8 +103,7 @@
       "        allowNull: false,",
       "        type: Sequelize.DATE,",
       "      },",
-      "    });",
-      "  },"
+      "    });"
     ],
     "description": "One to many table template for sequelize migration file"
   },
@@ -96,14 +120,14 @@
       "      ${2:col_name_singular}_id: {",
       "        type: Sequelize.INTEGER,",
       "        references: {",
-      "          model: '${3:tables}',",
+      "          model: '${2:col_name_singular}s',",
       "          key: 'id',",
       "        },",
       "      },",
-      "      ${4:col_name_singular}_id: {",
+      "      ${3:col_name_singular}_id: {",
       "        type: Sequelize.INTEGER,",
       "        references: {",
-      "          model: '${5:tables}',",
+      "          model: '${3:col_name_singular}s',",
       "          key: 'id',",
       "        },",
       "      },",
@@ -116,7 +140,6 @@
       "        type: Sequelize.DATE,",
       "      },",
       "    });",
-      "  },",
       ""
     ],
     "description": "many to many table template for sequelize migration file"
@@ -133,7 +156,7 @@
       "      type: DataTypes.INTEGER,",
       "    },",
       "    ${1:col_name}: {",
-      "      type: Sequelize.<COLUMN_DATA_TYPE_UPPERCASE>,",
+      "      type: DataTypes.{$2:DATATYPE}},",
       "    },",
       "    // ... [<OTHER_COLUMNS>]",
       "    createdAt: {",
@@ -237,5 +260,40 @@
       "export default db;"
     ],
     "description": "db setup template"
+  },
+  "MVC Routes": {
+    "prefix": "ras-mvc-routes",
+    "body": [
+      "import db from './models/index.mjs';",
+      "",
+      "// import the controller",
+      "import init${1:Items}Controller from './controllers/${2:item}.mjs';",
+      "",
+      "export default function bindRoutes(app) {",
+      "  // pass in the db for all items callbacks",
+      "  const ${2:item}sController = init${1:Items}Controller(db);",
+      "",
+      "  app.get('/${2:item}s', ${2:item}sController.index);",
+      "}"
+    ],
+    "description": "Template for MVC route controller"
+  },
+  "ras-npx-sqlz-cmds": {
+    "prefix": "",
+    "body": [
+      "npm init -y",
+      "npm install pg sequelize",
+      "npm install --save-dev sequelize-cli",
+      "mkdir config migrations models seeders",
+      "npx sequelize db:create",
+      "npx sequelize migration:generate --name create-table",
+      "npx sequelize db:migrate",
+      "npx sequelize db:migrate:undo",
+      "npx sequelize seed:generate --name seed-data",
+      "npx sequelize db:seed:all",
+      "npx sequelize db:seed:all:undo",
+      "npx sequelize db:seed:all --debug"
+    ],
+    "description": "Quick reference for npx commands"
   }
 }
