@@ -278,8 +278,8 @@
     ],
     "description": "Template for MVC route controller"
   },
-  "ras-npx-sqlz-cmds": {
-    "prefix": "",
+  "CLI commands": {
+    "prefix": "ras-npx-sqlz-cmds",
     "body": [
       "npm init -y",
       "npm install pg sequelize",
