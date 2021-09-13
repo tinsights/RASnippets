@@ -4,6 +4,11 @@ All notable changes to the "ra-snippets" extension will be documented in this fi
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [1.0.4]
+
+- Added MVC Routes controller template
+- Added npx sequelize command cheatsheet
+
 ## [1.0.0]
 
 - Initial release of RA Snippets Extension :)
