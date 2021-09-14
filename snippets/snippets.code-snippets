@@ -2,17 +2,32 @@
   "Sequelize Config File": {
     "prefix": "ras-sqlz-config",
     "body": [
-      "module.exports = {",
-      "  development: {",
-      "    username: '${1:username}',",
-      "    password: null,",
-      "    database: '${2:DB_name}_development',",
-      "    host: '127.0.0.1',",
-      "    dialect: 'postgres',",
-      "  },",
-      "};"
+    "{",
+    "  development: {",
+    "    username: ${1:username},",
+    "    password: null,",
+    "    database: ${2:DB_name}_development,",
+    "    host: 127.0.0.1,",
+    "    dialect: psql",
+    "  },",
+    "  test: {",
+    "    username: root,",
+    "    password: null,",
+    "    database: d${2:DB_name}_test,",
+    "    host: 127.0.0.1,",
+    "    dialect: psql",
+    "  },",
+    "  production: {",
+    "    username: root,",
+    "    password: null,",
+    "    database: ${2:DB_name}_production,",
+    "    host: 127.0.0.1,",
+    "    dialect: psql",
+    "  }",
     ],
     "description": "Sequelize config file template"
+}
+    
   },
   "Sequelize Migration Template": {
     "prefix": "ras-sqlz-mig",
