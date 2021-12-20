@@ -169,7 +169,7 @@
       "      type: DataTypes.INTEGER,",
       "    },",
       "    ${1:col_name}: {",
-      "      type: DataTypes.{$2:DATATYPE},",
+      "      type: DataTypes.${2:DATATYPE},",
       "    },",
       "    // ... [<OTHER_COLUMNS>]",
       "    createdAt: {",
